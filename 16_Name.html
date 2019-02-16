@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Return first and last name from a form</title>
+    <style type="text/css">
+        body {
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" onsubmit="event.preventDefault();  getFormvalue(); " action="" autocomplete="off">
+        First name: <input type="text" name="fname" id="fname"><br>
+        Last name: <input type="text" name="lname" id="lname"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <p id="result"></p>
+    <script>
+        function getFormvalue() {
+            var data = "";
+            var x = document.getElementById("form1");
+            for (var i = 0; i < x.length; i++) {
+                if (x.elements[i].type != "submit") {
+                    if (x.elements[i].type == "text") {
+                        // Get the Element ID and compare
+                        if (x.elements[i].value != "") {
+                            data = data + x.elements[i].value;
+                        }
+                    }
+                    document.getElementById("result").innerHTML = data;
+                }
+
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Guess a number</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+
+        var num = prompt('Guess the number');
+        var gnum = Math.ceil(Math.random(num) * 10);
+        alert('Test====' + num);
+        alert('Test****' + gnum);
+        if (gnum == num)
+            alert('Good Work');
+        else
+            alert('Not Matched' + num);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<html>
+
+<head>
+    <title>Html5 Assignment for CSS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+
+
+            // Name can't be blank
+            $('#Name').on('input', function () {
+                var input = $(this);
+                var is_name = input.val();
+                if (is_name) { input.removeClass("error").addClass("valid"); }
+                else { input.removeClass("valid").addClass("error"); }
+            });
+
+            // Email must be an email
+            $('#Email').on('input', function () {
+                var input = $(this);
+                var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                var is_email = re.test(input.val());
+                if (is_email) { input.removeClass("error").addClass("valid"); }
+                else { input.removeClass("valid").addClass("error"); }
+            });
+
+            // Website must be a website
+            $('#Website').on('input', function () {
+                var input = $(this);
+                if (input.val().substring(0, 4) == 'www.') { input.val('http://www.' + input.val().substring(4)); }
+                var re = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/;
+                var is_url = re.test(input.val());
+                if (is_url) { input.removeClass("error").addClass("valid"); }
+                else { input.removeClass("valid").addClass("error"); }
+            });
+
+            // Message can't be blank
+            $('#MessageText').keyup(function (event) {
+                var input = $(this);
+                var message = $(this).val();
+                console.log(message);
+                if (message) { input.removeClass("error").addClass("valid"); }
+                else { input.removeClass("valid").addClass("error"); }
+            });
+
+
+            // After Form Submitted Validation
+            $("#SubmitForm").click(function (event) {
+                var form_data = $("#Form").serializeArray();
+                var error_free = true;
+                for (var input in form_data) {
+
+                    var element = $('#' + form_data[input]['name']);
+                    var name = form_data[input]['name'];
+                    var valid = element.hasClass("valid");
+
+                    var error_element = $('#span-' + name);
+                    if (!valid) { error_element.removeClass("Validation").addClass("Validation_failed"); error_free = false; }
+                    else { error_element.removeClass("Validation_failed").addClass("Validation"); }
+                }
+                if (!error_free) {
+                    event.preventDefault();
+                }
+                else {
+                    $(this).addClass("buttonvalid");
+                    event.preventDefault();
+                }
+            });
+        });
+
+    </script>
+    <style>
+        form {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 20px;
+        }
+
+        buttonvalid {
+            background-color: greenyellow;
+        }
+
+        .valid {
+            background-color: greenyellow;
+            border-color: green;
+            border-width: 2px;
+            background: url(image/checked.svg) no-repeat;
+            background-position: right;
+            background-size: 8px;
+        }
+
+        :invalid {
+            display: block;
+        }
+
+        .error {
+            background-color: red;
+            background: url(image/cross.svg) no-repeat;
+            background-position: right;
+            background-size: 8px;
+        }
+
+        .Validation {
+            display: none;
+            margin-left: 10px;
+        }
+
+        .Validation_failed {
+            color: red;
+            margin-left: 10px;
+        }
+
+
+        input {
+            width: 180px;
+        }
+
+        textarea {
+            width: 180px;
+            height: 100px;
+            background-size: 8px;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        table, tr, td {
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            border-collapse: collapse;
+            border-spacing: 10px;
+        }
+
+        tr, td {
+            padding: 25px;
+        }
+
+        td {
+            padding: 18px;
+        }
+
+        .form-group {
+            position: relative;
+            padding-top: 1.5rem;
+        }
+
+        input.invalid, textarea.invalid {
+            border: 2px solid red;
+        }
+
+        input.valid, textarea.valid {
+            border: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" id="Form" class="simple-form">
+
+
+        <table class="table">
+
+            <tr>
+                <th>
+                    <h1>Contact Us</h1>
+                </th>
+                <th> </th>
+                <th class="Validation_failed">*Denotes Required Field</th>
+            </tr>
+
+            <tr>
+                <td><b>Name</b></td>
+                <td><input type="text" style="width : 220px;" id="Name" name="Name" placeholder="Name" class="error"></td>
+                <td>
+                    <span id="span-Name" class="Validation">This field is required</span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Email</b></td>
+                <td><input type="email" id="Email" name="Email" placeholder="user@cognizant.com" class="error"></td>
+
+                <td>
+
+                    <span id="span-Email" class="Validation">Required Input in Format username@example.com</span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Website</b></td>
+                <td><input type="url" id="Website" name="Website" placeholder="https://example.com" class="error"></td>
+                <td>
+                    <span id="span-Website" class="Validation">Required Input in Format http://google.com</span>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Message</b></td>
+                <td>
+                    <textarea placeholder="Message" id="MessageText" name="MessageText" name="MessageText" class="error" multiple></textarea>
+
+                </td>
+                <td><span id="span-MessageText" class="Validation">This field is required</span></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td>
+                    <button type="submit" id="SubmitForm">Submit Form</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+
+    </form>
+
+</body>
+
+</html>

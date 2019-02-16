@@ -1,0 +1,6 @@
+C:\Users\m9peru\Desktop\FSE\Jquery\Jquery\Jquery\bin\Jquery.dll.config
+C:\Users\m9peru\Desktop\FSE\Jquery\Jquery\Jquery\bin\Jquery.dll
+C:\Users\m9peru\Desktop\FSE\Jquery\Jquery\Jquery\bin\Jquery.pdb
+C:\Users\m9peru\Desktop\FSE\Jquery\Jquery\Jquery\obj\Debug\Jquery.csprojResolveAssemblyReference.cache
+C:\Users\m9peru\Desktop\FSE\Jquery\Jquery\Jquery\obj\Debug\Jquery.dll
+C:\Users\m9peru\Desktop\FSE\Jquery\Jquery\Jquery\obj\Debug\Jquery.pdb

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>JavaScript Day and Hour</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+    <script>
+        var d = new Date();
+
+        var getHour = d.getHours();
+        var getMin = d.getMinutes();
+        var getSec = d.getSeconds();
+        if (getHour > 12) {
+            var bikal = " PM";
+            var finalHour = getHour - 12 + bikal + " : " + getMin + " : " + getSec;
+
+        }
+        if (getHour < 12) {
+            var shokal = " AM";
+            var finalHour = getHour + shokal + " : " + getMin + " : " + getSec;
+
+        }
+
+        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        document.getElementById("demo").innerHTML = 'Today is : ' + days[d.getDay()];
+        document.getElementById("demo2").innerHTML = 'Current time is : ' + finalHour;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title>Html5 Assignment for CSS</title>
+    <style>
+       
+
+input:required + .help-text::before {
+    content: '*Required';
+}
+
+input:placeholder-shown + label {
+    opacity: 0;
+    transform: translateY(1rem);
+}
+
+&:disabled {
+    border-color: var(--gray-lighter);
+    background-color: var(--gray-lightest);
+    background-size: 10px;
+    color: var(--gray-light);
+}
+
+input[type='text']:valid {
+    border-color: green;
+    background: url(image/checked.svg) no-repeat;
+    background-position:right;
+}
+
+input[type='input']:invalid {
+    border-color: red;
+    background: url(image/cross.svg) no-repeat;
+    background-position:right;
+}
+
+input[type='email']:invalid + .help-text::before {
+    content: 'You must enter a valid email.'
+}
+         </style>
+</head>
+
+<body>
+<form>
+     
+        <br/>
+        <br/>
+        <label for="required-input">Required input</label>
+        <input type="text" id="required-input" required>
+
+        <span class="help-text"></span>
+<br/>
+<br/>
+
+        <label for="invalid-email">Invalid input</label>
+        <input type="email" id="invalid-email" value="notanemail">
+        <span class="help-text"></span>
+   
+</form>
+
+</body>
+
+</html>

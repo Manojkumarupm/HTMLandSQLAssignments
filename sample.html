@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>Html5 Assignment for CSS</title>
+    <style>
+label {
+    position: absolute;
+    top: 0;
+    font-size: var(--font-size-small);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.2s ease-out;
+}
+
+input:placeholder-shown + label {
+    opacity: 0;
+    transform: translateY(1rem);
+}
+
+
+         </style>
+</head>
+<body>
+<div class="form-group">
+        <input type="text" id="dynamic-label-input" placeholder="Enter some text">
+        <label for="dynamic-label-input">Enter some text</label>
+    </div>
+</body>
+</html>

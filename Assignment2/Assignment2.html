@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <title>This is Assignment2</title>
+    <style>
+        .error
+{
+    color: red;
+
+}
+
+</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.error').hide();
+            $("#myform").click(function () {
+                var dateentered = $("#DateTimedemo").val();
+
+                
+                if (ValidateDate(dateentered)) {
+                 
+                    $('.error').hide();
+
+                }
+
+                else {
+                   
+                    $('.error').show();
+
+                    event.preventDefault();
+
+                }
+
+            });
+
+        });
+
+        function ValidateDate(dateValue) {
+
+            var dtRegex = new RegExp(/\b\d{1,2}[\/-]\d{1,2}[\/-]\d{4}\b/);
+            //b represent beginning and end and \d represents numbers.
+
+            return dtRegex.test(dateValue);
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <label>Number Demo:</label> <br />
+            <input type="number" value="5" name="Number" id="NumberDemo" required/>
+            <br />
+        </tr>
+        <tr>
+            <label>Range Demo:</label> <br />
+            <input type="range" min="1" max="10" value="5" step="1" id="RangeDemo" required/>
+            <br />
+        </tr>
+        <tr>
+            <label>Color Demo</label> <br />
+            <input type="color" id="Colordemo" />
+            <br />
+        </tr>
+        <tr>
+            <label>Date Demo</label> <br />
+            <input type="date" id="Datedemo" placeholder="dd-mm-yyyy" required/>
+            <br />
+        </tr>
+        <tr>
+            <label>Time Demo</label> <br />
+            <input type="time" id="Timedemo" placeholder="hh:mm" pattern="[0-9]{2}:[0-9]{2}" required placeholder="--:--" />
+            <br />
+        </tr>
+
+        <tr>
+            <label>DateTime Local Demo</label> <br />
+            <input type="datetime-local" id="DateTimeLocaldemo" required/>
+            <br />
+
+        </tr>
+        <tr>
+            <label>DateTime Demo</label> <br />
+            <input type="datetime" id="DateTimedemo" autocomplete="on" required />
+            <span class="error"> Invalid Date.(mm/dd/yyyy or mm-dd-yyyy)
+            </span>
+            <br />
+
+        </tr>
+        <tr>
+            <label>BirthMonth </label> <br />
+            <input type="month" id="BirthMonthdemo" required/>
+            <br />
+
+        </tr>
+        <tr>
+            <label>Vacation Week </label> <br />
+            <input type="week" id="Weekdemo" />
+            <input type="text" id="DescriptionDemo" placeholder="Enter Value" required/>
+            <input type="submit" value="Go!" id="myform" />
+            <br />
+
+        </tr>
+    </table>
+
+</body>
+
+</html>

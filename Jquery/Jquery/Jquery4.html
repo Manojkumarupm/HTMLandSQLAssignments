@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="https://code.jquery.com/jquery-git.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Jquery 4 - Add options to a drop-down list using jQuery.</title>
+    <script>
+        $(document).ready(function () {
+            $("#ListofColors").click(function () {
+                $(this).off("click");
+                $("#myColors").append('<option value="Brown">Brown</option>');
+                $("#myColors").append('<option value="Blue">Blue</option>');
+                $("#myColors").append('<option value="SkyBlue">SkyBlue</option>');
+                $(this).removeClass('AddMe').addClass('done');
+            });
+
+        });
+
+    </script>
+    <style>
+        .AddMe {
+            color: blue;
+            background-color: lawngreen;
+            width: 150px;
+        }
+        .done {
+            color: lightblue;
+            background-color: red;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <p id="ListofColors" class="AddMe">Click me ListofColors:</p> <select id='myColors'>
+        <option value="Red">
+            Red
+        </option>
+        <option value="Green">
+            Green
+        </option>
+        <option value="White">
+            White
+        </option>
+        <option value="Black">
+            Black
+        </option>
+
+    </select>
+</body>
+</html>

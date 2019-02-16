@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>=Number of occurrences of each letter in specified string</title>
+</head>
+
+<body>
+
+
+    <p id="test"> </p>
+    <script>
+        function Char_Counts(findcharacters) {
+
+            var CharList = [];
+            var CharCount = [];
+            var index = 0;
+            
+            for (var i = 1; i <= findcharacters.length; i++) {
+                
+                if (CharList.indexOf(findcharacters[i - 1]) > -1) {
+                     
+                    // already there add the count
+                    index = CharList.indexOf(findcharacters[i -1 ] );
+                    CharList[index] = findcharacters[i-1];
+                    CharCount[index] = CharCount[index] + 1;
+                    
+                }
+                else {
+                    CharList.push(findcharacters[i - 1]);
+                     
+                    CharCount.push(1);
+                    ++index;
+                }
+
+            }
+            var data="";
+            for (var j=0;j<CharList.length;j++)
+            {
+                data= data+ "\n Character " + CharList[j] + ' Count : ' + CharCount[j];
+            }
+            return data;
+        }
+
+
+        document.getElementById("test").innerHTML = Char_Counts("The quick brown fox jumps over the lazy dog");
+    </script>
+
+</body>
+</html>
